@@ -1,0 +1,19 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"build": {
+			"inputs": [
+				"package.json",
+				"package-lock.json",
+				"src/**"
+			],
+			"outputs": [
+				".svelte-kit/output/**",
+				"lib/**",
+				"public/**"
+			]
+		},
+		"test": {},
+		"lint": {}
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"name": "firebase-emulator-devcontainer",
+	"version": "0.0.0",
+	"description": "",
+	"devDependencies": {
+		"turbo": "^1.10.7"
+	},
+	"workspaces": [
+		"app",
+		"functions"
+	],
+	"scripts": {
+		"build": "turbo build",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "MIT",
+	"volta": {
+		"node": "18.16.1"
+	}
+}
