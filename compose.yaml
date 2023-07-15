@@ -1,0 +1,43 @@
+version: "3.8"
+
+volumes:
+  node_modules:
+  firebase_node_modules:
+
+services:
+  workspace:
+    build:
+      context: .
+      dockerfile: ./docker/workspace/Dockerfile
+    working_dir: /workspace
+    network_mode: service:firebase
+    command: sleep infinity
+    volumes:
+      - .:/workspace:cached
+      - node_modules:/workspace/node_modules
+
+  firebase:
+    build:
+      context: .
+      dockerfile: ./docker/firebase_emulator/Dockerfile
+    volumes:
+      - .:/firebase_emulator/:cached
+      - firebase_node_modules:/firebase_emulator/node_modules
+    ports:
+      - 4400:4400
+      - 4500:4500
+      - 5000:5000
+      - 5001:5001
+      - 8080:8080
+      - 8081:8081
+      - 8085:8085
+      - 9000:9000
+      - 9099:9099
+      - 9199:9199
+      - 9299:9299
+    working_dir: /firebase_emulator
+    command: >
+      /bin/bash -c '
+      npm ci &&
+      firebase emulators:start --only auth,functions,firestore,firestore,database,hosting,pubsub,storage,eventarc
+      '
