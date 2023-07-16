@@ -39,5 +39,5 @@ services:
     command: >
       /bin/bash -c '
       npm ci &&
-      firebase emulators:start --only auth,functions,firestore,firestore,database,hosting,pubsub,storage,eventarc
+      firebase emulators:start --import=./firebase-data --only auth,functions,firestore,firestore,database,hosting,pubsub,storage,eventarc
       '
