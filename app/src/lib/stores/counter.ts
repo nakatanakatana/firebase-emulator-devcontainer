@@ -1,6 +1,5 @@
 import { writable } from 'svelte/store'
 
-
 const initValue = 0;
 const {subscribe, set, update} = writable(initValue);
 

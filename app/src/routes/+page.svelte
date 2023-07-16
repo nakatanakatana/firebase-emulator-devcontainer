@@ -1,5 +1,6 @@
 <script>
 	import Counter from '$lib/components/Counter.svelte';
+	import Save from '$lib/components/Save.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 </script>
@@ -26,6 +27,7 @@
 	</h2>
 
 	<Counter />
+	<Save />
 </section>
 
 <style>
