@@ -1,5 +1,5 @@
-.firebaserc
-firebase-data/
+firebase-data/*
+!firebase-data/.gitkeep
 
 # Logs
 logs
@@ -64,6 +64,3 @@ node_modules/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env
