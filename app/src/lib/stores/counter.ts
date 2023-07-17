@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import { Firestore } from '$lib/firebase';
-import { setDoc, doc, serverTimestamp } from 'firebase/firestore';
+import { setDoc, doc, serverTimestamp, DocumentData, type FirestoreDataConverter, getDoc } from 'firebase/firestore';
 
 const initValue = 0;
 const { subscribe, set, update } = writable(initValue);
@@ -24,9 +24,27 @@ export const counter = {
 	reset: reset
 };
 
+
+const counterDocPath = 'globals/counter'
+export type Counter = number
+export const counterConverter: FirestoreDataConverter<Counter> = {
+	toFirestore(counter: Counter): DocumentData {
+		return {
+			data: counter,
+			updatedAt: serverTimestamp(),
+		}
+	},
+	fromFirestore(snapshot, options): Counter {
+		const data = snapshot.data(options)
+		return data.data
+	},
+}
+
 export const saveCounter = (counter: number) => {
-	setDoc(doc(Firestore, 'globals/counter'), {
-		updatedAt: serverTimestamp(),
-		data: counter
-	});
+	setDoc(doc(Firestore, counterDocPath).withConverter(counterConverter), counter);
 };
+
+export const loadCounter = async (): Promise<Counter> => {
+	const snapshot = await getDoc(doc(Firestore, counterDocPath).withConverter(counterConverter))
+	return snapshot.data()
+}

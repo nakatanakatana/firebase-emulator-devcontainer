@@ -1,6 +1,6 @@
 import { describe, test, expect, afterEach } from 'vitest';
 import { get } from 'svelte/store';
-import { counter } from './counter';
+import { counter, loadCounter, saveCounter } from './counter';
 
 describe('counter', () => {
 	afterEach(() => {
@@ -30,4 +30,13 @@ describe('counter', () => {
 		counter.reset();
 		expect(get(counter)).equal(0);
 	});
+
+	test('save', async () => {
+		const num = 10;
+		dofunc(counter.incr, num);
+		saveCounter(get(counter))
+		const result = await loadCounter()
+
+		expect(result).equal(num)
+	})
 });
