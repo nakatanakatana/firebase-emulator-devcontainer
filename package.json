@@ -11,7 +11,7 @@
 	],
 	"scripts": {
 		"build": "turbo build",
-		"test": "turbo test",
+		"test": "firebase emulators:exec --import=./firebase-data --only auth,firestore,database 'npx turbo test'",
 		"lint": "turbo lint",
 		"format": "turbo format"
 	},

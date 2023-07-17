@@ -2,5 +2,8 @@
   "name": "firebase-emulator",
   "dockerComposeFile": "compose.yaml",
   "service": "workspace",
+  "runServices": [
+    "firebase"
+  ],
   "workspaceFolder": "/workspace"
 }
