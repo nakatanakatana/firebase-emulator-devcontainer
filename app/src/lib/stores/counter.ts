@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import { Firestore } from '$lib/firebase';
-import { setDoc, doc, serverTimestamp, DocumentData, type FirestoreDataConverter, getDoc } from 'firebase/firestore';
+import { setDoc, doc, serverTimestamp, type DocumentData, type FirestoreDataConverter, getDoc } from 'firebase/firestore';
 
 const initValue = 0;
 const { subscribe, set, update } = writable(initValue);
