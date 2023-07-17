@@ -1,15 +1,7 @@
 <script lang="ts">
-	import { counter } from '$lib/stores/counter';
-	import { Firestore } from '$lib/firebase';
-	import { addDoc, collection, setDoc, doc } from 'firebase/firestore';
-
-	const save = () => {
-		setDoc(doc(Firestore, 'counter/num'), {
-			data: $counter
-		});
-	};
+    import { counter, saveCounter } from '$lib/stores/counter';
 </script>
 
 <div class="save-counter">
-	<button on:click={() => save()}>save</button>
+    <button on:click={() => saveCounter($counter)}>save</button>
 </div>
