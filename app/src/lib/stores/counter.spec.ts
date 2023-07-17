@@ -34,9 +34,9 @@ describe('counter', () => {
 	test('save', async () => {
 		const num = 10;
 		dofunc(counter.incr, num);
-		saveCounter(get(counter))
-		const result = await loadCounter()
+		saveCounter(get(counter));
+		const result = await loadCounter();
 
-		expect(result).equal(num)
-	})
+		expect(result).equal(num);
+	});
 });
