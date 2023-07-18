@@ -13,6 +13,8 @@ services:
     command: sleep infinity
     ports:
       - 6006:6006
+    links:
+      - firebase:browser
     volumes:
       - .:/workspace:cached
       - node_modules:/workspace/node_modules
@@ -42,3 +44,9 @@ services:
       npm ci &&
       firebase emulators:start --import=./firebase-data --only auth,functions,firestore,database,hosting,pubsub,storage,eventarc
       '
+
+  browser:
+    build:
+      context: .
+      dockerfile: ./docker/playwright_browser/Dockerfile
+    network_mode: service:firebase

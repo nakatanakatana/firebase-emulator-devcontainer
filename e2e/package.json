@@ -1,0 +1,14 @@
+{
+  "name": "e2e",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@playwright/test": "^1.36.1"
+  },
+  "scripts": {
+    "test": "playwright test"
+  },
+  "author": "",
+  "license": "MIT"
+}

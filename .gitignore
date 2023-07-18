@@ -1,6 +1,8 @@
 firebase-data/*
 !firebase-data/.gitkeep
 
+e2e/screenshot.png
+
 # Logs
 logs
 *.log
