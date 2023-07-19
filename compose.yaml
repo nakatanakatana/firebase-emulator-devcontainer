@@ -41,7 +41,7 @@ services:
     working_dir: /firebase_emulator
     command: >
       /bin/bash -c '
-      npm ci &&
+      npm ci --omit=dev &&
       firebase emulators:start --import=./firebase-data --only auth,functions,firestore,database,hosting,pubsub,storage,eventarc
       '
 

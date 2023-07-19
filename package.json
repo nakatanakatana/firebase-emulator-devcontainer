@@ -3,6 +3,7 @@
 	"version": "0.0.0",
 	"description": "",
 	"devDependencies": {
+		"firebase-tools": "^12.4.4",
 		"turbo": "^1.10.7"
 	},
 	"workspaces": [
