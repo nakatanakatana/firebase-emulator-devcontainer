@@ -16,7 +16,7 @@ services:
     links:
       - firebase:browser
     volumes:
-      - .:/workspace:cached
+      - ..:/workspace:cached
       - node_modules:/workspace/node_modules
 
   firebase:
@@ -24,7 +24,7 @@ services:
       context: .
       dockerfile: ./docker/firebase_emulator/Dockerfile
     volumes:
-      - .:/firebase_emulator/:cached
+      - ..:/firebase_emulator/:cached
       - firebase_node_modules:/firebase_emulator/node_modules
     ports:
       - 4400:4400
