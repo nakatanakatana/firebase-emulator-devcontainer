@@ -2,6 +2,9 @@ firebase-data/*
 !firebase-data/.gitkeep
 
 e2e/screenshot.png
+e2e/test-results
+
+app/storybook-static
 
 # Logs
 logs
