@@ -7,7 +7,8 @@
     "@playwright/test": "^1.36.1"
   },
   "scripts": {
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:ui": "APP_HOST=firebase playwright test --ui --ui-port=8099 --ui-host=0.0.0.0"
   },
   "author": "",
   "license": "MIT"
