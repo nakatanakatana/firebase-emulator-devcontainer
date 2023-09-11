@@ -3,11 +3,7 @@
 </script>
 
 <div class="counter">
-	<button on:click={() => counter.decr()} aria-label="Decrease the counter by one">
-		<svg aria-hidden="true" viewBox="0 0 1 1">
-			<path d="M0,0.5 L1,0.5" />
-		</svg>
-	</button>
+	<button on:click={() => counter.decr()}>-</button>
 
 	<div class="counter-viewport">
 		<div class="counter-digits">
@@ -16,11 +12,7 @@
 		</div>
 	</div>
 
-	<button on:click={() => counter.incr()} aria-label="Increase the counter by one">
-		<svg aria-hidden="true" viewBox="0 0 1 1">
-			<path d="M0,0.5 L1,0.5 M0.5,0 L0.5,1" />
-		</svg>
-	</button>
+	<button on:click={() => counter.incr()}>+</button>
 </div>
 
 <style>
@@ -45,17 +37,6 @@
 
 	.counter button:hover {
 		background-color: var(--color-bg-1);
-	}
-
-	svg {
-		width: 25%;
-		height: 25%;
-	}
-
-	path {
-		vector-effect: non-scaling-stroke;
-		stroke-width: 2px;
-		stroke: #444;
 	}
 
 	.counter-viewport {
