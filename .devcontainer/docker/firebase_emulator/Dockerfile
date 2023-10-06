@@ -1,4 +1,4 @@
-FROM node:20.4.0-slim
+FROM oven/bun
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 && apt-get -y install openjdk-17-jre curl \
@@ -7,7 +7,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN curl -sL https://firebase.tools/bin/linux/latest > /usr/local/bin/firebase \
 && chmod +x /usr/local/bin/firebase
 
-USER node
+USER bun
 WORKDIR /firebase_emulator
 RUN mkdir /firebase_emulator/node_modules
 
@@ -18,4 +18,4 @@ RUN firebase setup:emulators:database \
 && firebase setup:emulators:pubsub \
 && firebase setup:emulators:storage \
 && firebase setup:emulators:ui \
-&& rm /home/node/.cache/firebase/emulators/*.zip 
+&& rm /home/bun/.cache/firebase/emulators/*.zip 

@@ -6,7 +6,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 && rm -rf /var/lib/apt/lists/*
 
 USER vscode
-RUN curl https://get.volta.sh | bash
 
+RUN curl -fsSL https://bun.sh/install | bash
 WORKDIR /workspace
 RUN mkdir /workspace/node_modules
